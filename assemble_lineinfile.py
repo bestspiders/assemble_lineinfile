@@ -18,7 +18,7 @@ class ActionModule(ActionBase):
         # 获取入参
         source = self._task.args.get('src', None)
         dest   = self._task.args.get('dest', None)
- 	sub_str=self._task.args.get('sub_str',None)
+        sub_str=self._task.args.get('sub_str',None)
         remote_src= boolean(self._task.args.get('remote_src',False),strict=False)
         mode=self._task.args.get('mode',0755)
         if os.path.isfile(source)==False and remote_src== False:
@@ -52,8 +52,8 @@ class ActionModule(ActionBase):
             return result
         finally:
             self._loader.cleanup_tmp_file(tmp_source)
-	new_task=self._task.copy()
-	new_task.args.pop('sub_str',None)
+        new_task=self._task.copy()
+        new_task.args.pop('sub_str',None)
         if remote_src ==False:
             try:
                 tempdir = tempfile.mkdtemp()
